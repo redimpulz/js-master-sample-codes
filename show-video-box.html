@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show video box example</title>
+    <style>
+      div {
+        width: 300px;
+        border-radius: 10px;
+        background-color: #eee;
+        padding: 40px;
+      }
+
+      .hidden {
+        visibility: hidden;
+      }
+
+      video {
+        width: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <button>Display video</button>
+
+    <div class="hidden">
+      <video>
+        <source src="top-video.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <script>
+
+      const btn = document.querySelector('button');
+      const videoBox = document.querySelector('div');
+      const video = document.querySelector('video');
+
+      btn.onclick = () => {
+        videoBox.removeAttribute('class','hidden');
+      }
+
+      videoBox.onclick = () => {
+        videoBox.setAttribute('class','hidden');
+      };
+
+      video.onclick = (e) => {
+        e.stopPropagation();
+        video.play();
+      };
+
+    </script>
+  </body>
+</html>
